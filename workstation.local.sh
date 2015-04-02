@@ -33,6 +33,7 @@
 # brew_cask_install 'google-drive'
 # brew_cask_install 'dropbox'
 # brew_cask_install 'evernote'
+# brew_cask_install 'amazon-cloud-drive'
 
 ####################
 # Chat
@@ -46,8 +47,8 @@
 ####################
 
 # brew_cask_install 'rubymine'
-# brew_cask_install 'pycharm-ce'
-# brew_cask_install 'intellij-idea-ce'
+# brew_cask_install 'pycharm-ce'       # ce = community edition, remove for professional install
+# brew_cask_install 'intellij-idea-ce' # ce = community edition, remove for ultimate install
 # brew_cask_install 'sourcetree'
 # brew_cask_install 'sublime-text3'
 # brew_cask_install 'atom'
@@ -83,3 +84,8 @@
 # brew_cask_install 'jaikoz'
 # brew_cask_install 'keepassx'
 # brew_cask_install 'menumeters'
+# brew_cask_install 'appcleaner'
+# brew_cask_install 'battle-net'
+# brew_cask_install 'joinme'
+# brew_cask_install 'steam'
+# brew_cask_install 'textwrangler'
