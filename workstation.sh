@@ -16,14 +16,6 @@ append_to_file() {
   local file="$1"
   local text="$2"
 
-  if [ "$file" = "$HOME/.zshrc" ]; then
-    if [ -w "$HOME/.zshrc.local" ]; then
-      file="$HOME/.zshrc.local"
-    else
-      file="$HOME/.zshrc"
-    fi
-  fi
-
   if ! grep -Fqs "$text" "$file"; then
     printf "\n%s\n" "$text" >> "$file"
   fi
@@ -142,36 +134,25 @@ fi
 fancy_echo 'Updating Rubygems...'
 gem update --system
 
-#gem_install_or_update 'bundler'
-#
-#fancy_echo "Configuring Bundler ..."
-#number_of_cores=$(sysctl -n hw.ncpu)
-#bundle config --global jobs $((number_of_cores - 1))
-#
-#brew_tap 'caskroom/cask'
-#
-#brew_install_or_upgrade 'brew-cask'
-#
-#brew_tap 'caskroom/versions'
-#
-#brew_cask_install 'flux'
-#brew_cask_install 'github'
-#brew_cask_install 'sublime-text3'
-#
-#brew_cask_install 'virtualbox'
-#brew_cask_install 'vagrant'
-#brew_cask_install 'vagrant-manager'
-#
-#brew_cask_install 'boot2docker'
-#brew_cask_install 'boot2docker-status'
-#
-#if [ -f "$HOME/.laptop.local" ]; then
-#  . "$HOME/.laptop.local"
-#fi
-#
-#append_to_file "$HOME/.rvmrc" 'rvm_auto_reload_flag=2'
-#
-#if [ ! -f "$HOME/.ssh/github_rsa.pub" ]; then
-#  open ~/Applications/GitHub.app
-#fi
-#
+gem_install_or_update 'bundler'
+
+fancy_echo "Configuring Bundler ..."
+number_of_cores=$(sysctl -n hw.ncpu)
+bundle config --global jobs $((number_of_cores - 1))
+
+brew_tap 'caskroom/cask'
+
+brew_install_or_upgrade 'brew-cask'
+
+brew_tap 'caskroom/versions'
+
+brew_cask_install 'flux'
+brew_cask_install 'github'
+
+if [ -f "$HOME/.workstation.local.sh" ]; then
+  . "$HOME/.workstation.local.sh"
+fi
+
+append_to_file "$HOME/.rvmrc" 'rvm_auto_reload_flag=2'
+
+

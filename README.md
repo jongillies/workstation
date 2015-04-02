@@ -16,6 +16,18 @@ Workstation supports clean installations of these operating systems:
 Older versions may work but aren't regularly tested. Bug reports for older
 versions are welcome.
 
+What it sets up
+---------------
+
+* [Flux] for adjusting your Mac's display color so you can sleep better
+* [GitHub for Mac] for setting up your SSH keys automatically
+* [Homebrew] for managing operating system libraries
+* [Homebrew Cask] for quickly installing Mac apps from the command line
+* [Homebrew Services] so you can easily stop, start, and restart services
+* [RVM] for managing Ruby versions (includes [Bundler] and the latest [Ruby])
+
+Plus, addional customizations and installations can be specified!
+
 Install
 -------
 
@@ -25,44 +37,67 @@ keyboard shortcut for invoking Spotlight is `command-Space`. Once Spotlight
 is up, just start typing the first few letters of the app you are looking for,
 and once it appears, press `return` to launch it.
 
-In your Terminal window, copy and paste each of these three commands one at a
-time, then press `return` after each one to download, review, and execute the
-script respectively:
+In your Terminal window, copy and paste each of these commands one at a
+time, then press `return` after each one:
 
-```sh
-curl --remote-name https://raw.githubusercontent.com/monfresh/laptop/master/mac
-cat mac
-bash mac 2>&1 | tee ~/laptop.log && source ~/.rvm/scripts/rvm
+```bash
+git clone https://github.com/jongillies/workstation.git
+cd workstation
 ```
 
-[Spotlight]: https://support.apple.com/en-us/HT204014
-[video]: https://github.com/monfresh/laptop/wiki/Detailed-installation-instructions-with-video
+Customize in `~/.workstation.local.sh`
+------------------------------
 
-Debugging
----------
+Copy the local cuztomization script:
 
-Your last Laptop run will be saved to `~/laptop.log`. Read through it to see if
-you can debug the issue yourself. If not, copy the lines where the script
-failed into a [new GitHub
-Issue](https://github.com/monfresh/laptop/issues/new) for me. Or, attach the
-whole log file as an attachment.
+```bash
+cp workstation.local.sh ~/.workstation.local.sh
+```
 
-What it sets up
----------------
+Your `~/.workstation.local.sh` is run at the end of the `workstation.sh` script.
+Put your customizations there. This repo already contains a `.workstation.local.sh`
+you can use to get started. It lets you install the following tools
+(commented out by default):
 
-* [Flux] for adjusting your Mac's display color so you can sleep better
-* [GitHub for Mac] for setting up your SSH keys automatically
+* [Atom] - GitHub's open source text editor
+* [CloudApp] for sharing screenshots and making an animated GIF from a video
+* [Firefox] for testing your Rails app on a browser other than Chrome or Safari
+* [iTerm2] - an awesome replacement for the OS X Terminal
 * [Heroku Toolbelt] for deploying and managing Heroku apps
-* [Homebrew] for managing operating system libraries
-* [Homebrew Cask] for quickly installing Mac apps from the command line
-* [Homebrew Services] so you can easily stop, start, and restart services
 * [hub] for interacting with the GitHub API
 * [Postgres] for storing relational data
 * [Qt] for headless JavaScript testing via Capybara Webkit
-* [RVM] for managing Ruby versions (includes [Bundler] and the latest [Ruby])
 * [Sublime Text 3] for coding all the things
-* [Zsh] as your shell
 
+
+To install any of the above tools, uncomment them from `.workstation.local.sh` by
+removing the `#`. For example, to install CloudApp, your `.workstation.local.sh`
+should look like this:
+
+```bash
+#!/bin/sh
+
+# brew_cask_install 'atom'
+brew_cask_install 'cloud'
+# brew_cask_install 'firefox'
+# brew_cask_install 'iterm2'
+```
+
+Write your customizations such that they can be run safely more than once.
+See the `workstation.sh` script for examples.
+
+Laptop functions such as `fancy_echo`, `brew_install_or_upgrade`,
+`gem_install_or_update`, and `brew_cask_install` can be used in your
+`~/.workstation.local.sh`.
+
+After you have made any customizations to ~/.workstation.local.sh, lets get setup.
+Run the following:
+
+```bash
+./workstation.sh
+```
+
+[Spotlight]: https://support.apple.com/en-us/HT204014
 [Bundler]: http://bundler.io/
 [Flux]: https://justgetflux.com/
 [GitHub for Mac]: https://mac.github.com/
@@ -77,55 +112,15 @@ What it sets up
 [RVM]: https://github.com/wayneeseguin/rvm
 [Sublime Text 3]: http://www.sublimetext.com/3
 [Zsh]: http://www.zsh.org/
-
-It should take less than 15 minutes to install (depends on your machine and
-internet connection).
-
-Customize in `~/.laptop.local`
-------------------------------
-
-Your `~/.laptop.local` is run at the end of the `mac` script.
-Put your customizations there. This repo already contains a `.laptop.local`
-you can use to get started. It lets you install the following tools
-(commented out by default):
-
-* [Atom] - GitHub's open source text editor
-* [CloudApp] for sharing screenshots and making an animated GIF from a video
-* [Firefox] for testing your Rails app on a browser other than Chrome or Safari
-* [iTerm2] - an awesome replacement for the OS X Terminal
-
 [Atom]: https://atom.io/
 [CloudApp]: http://getcloudapp.com/
 [Firefox]: https://www.mozilla.org/en-US/firefox/new/
 [iTerm2]: http://iterm2.com/
 
-To install any of the above tools, uncomment them from `.laptop.local` by
-removing the `#`. For example, to install CloudApp, your `.laptop.local`
-should look like this:
 
-```sh
-#!/bin/sh
+It should take less than 15 minutes to install (depends on your machine and
+internet connection).
 
-# brew_cask_install 'atom'
-brew_cask_install 'cloud'
-# brew_cask_install 'firefox'
-# brew_cask_install 'iterm2'
-```
-
-Write your customizations such that they can be run safely more than once.
-See the `mac` script for examples.
-
-Laptop functions such as `fancy_echo`, `brew_install_or_upgrade`,
-`gem_install_or_update`, and `brew_cask_install` can be used in your
-`~/.laptop.local`.
-
-```sh
-# Go to your OS X user's root directory
-cd ~
-
-# Download the sample file to your computer
-curl --remote-name https://raw.githubusercontent.com/monfresh/laptop/master/.laptop.local
-```
 
 Credits
 -------
