@@ -59,51 +59,49 @@ Put your customizations there. This repo already contains a `.workstation.local.
 you can use to get started. It lets you install the following tools
 (commented out by default):
 
-* [CloudApp] for sharing screenshots and making an animated GIF from a video
-
-
-* [Adium] - Adium is a free instant messaging application
-* [Amazon Cloud Drive] - Amazon Cloud Drive
-* [Apache Directory Studio] - Apache Directory Studio is a complete directory tooling platform intended to be used with any LDAP server
-* [App Cleaner] - An uninstaller like AppCleaner will make sure all unwanted files are removed.
-* [Avast] - Virus protection
-* [Boot2Docker Status] - Status bar application to manage the state of your Boot2Docker VM
-* [Boot2Docker] - boot2docker is a lightweight Linux distribution based on Tiny Core Linux made specifically to run Docker containers.
-* [Cool Term'] - CoolTerm is a simple serial port terminal application
-* [Cyberduck'] - Libre FTP, SFTP, WebDAV, S3 & OpenStack Swift browser for Mac
-* [Dropbox] - Cloud based files
-* [Evernote] - Cloud based notes
-* [Firefox] for testing your Rails app on a browser other than Chrome or Safari
-* [Flash Player] - Flash Player
-* [Chrome] - 
-* [Google Drive] - 
-* [Handbrake] - 
-* [Intellij IDEA] - 
-* [iTerm2] -
-* [Jaikoz] - 
-* [Jing] - 
-* [Joinme] - 
-* [Keepassx] - 
-* [Lastpass] - 
-* [MacPar Deluxe] - 
-* [Menu Meters] - 
-* [MYSQL Workbench] - 
-* [Unison] - 
-* [PyCharm] -
-* [Rubymine] - 
-* [Skype] - 
-* [Snagit] - 
-* [Source Tree] - 
-* [Steam] - 
-* [Sublime Text 3] for coding all the things
-* [Text Wrangler] - 
-* [Transmission] - 
-* [Transmission Remote GUI] - 
-* [Vagrant Manager] - 
-* [Vagrant] - 
-* [Virtualbox] - 
-* [VlC] - 
-* [VMware Fusion] - 
+* [Adium]
+* [Amazon Cloud Drive]
+* [Apache Directory Studio]
+* [App Cleaner]
+* [Avast]
+* [Boot2Docker Status]
+* [Boot2Docker]
+* [Chrome]
+* [CloudApp]
+* [Cool Term]
+* [Cyberduck]
+* [Dropbox]
+* [Evernote]
+* [Firefox]
+* [Flash Player]
+* [Google Drive]
+* [Handbrake]
+* [Intellij IDEA]
+* [iTerm2]
+* [Jaikoz]
+* [Jing]
+* [Joinme]
+* [Keepassx]
+* [Lastpass]
+* [MacPar Deluxe]
+* [Menu Meters]
+* [MYSQL Workbench]
+* [PyCharm]
+* [Rubymine]
+* [Skype]
+* [Snagit]
+* [Source Tree]
+* [Steam]
+* [Sublime Text 3]
+* [Text Wrangler]
+* [Transmission Remote GUI]
+* [Transmission]
+* [Unison]
+* [Vagrant Manager]
+* [Vagrant]
+* [Virtualbox]
+* [VlC]
+* [VMware Fusion]
 
 
 
@@ -141,13 +139,14 @@ Run the following:
 [Avast]: https://www.avast.com/en-us/index
 [Boot2Docker Status]: https://github.com/nickgartmann/boot2docker-status
 [Boot2Docker]: http://boot2docker.io/
+[Chrome]: http://www.google.com/chrome/
+[CloudApp]: http://getcloudapp.com/
 [Cool Term]: http://www.macupdate.com/app/mac/31352/coolterm
 [Cyberduck]: https://cyberduck.io/?l=en
 [Dropbox]: https://www.dropbox.com/
 [Evernote]: https://evernote.com/
 [Firefox]: https://www.mozilla.org/en-US/firefox/new/
 [Flash Player]: https://get2.adobe.com/flashplayer/
-[Chrome]: http://www.google.com/chrome/
 [Google Drive]: https://www.google.com/drive/
 [Handbrake]: https://handbrake.fr/
 [Intellij IDEA]: https://www.jetbrains.com/idea/
@@ -160,7 +159,6 @@ Run the following:
 [MacPar Deluxe]: http://gp.home.xs4all.nl/Site/MacPAR_deLuxe.html
 [Menu Meters]: http://www.ragingmenace.com/software/menumeters/
 [MYSQL Workbench]: https://www.mysql.com/products/workbench/
-[Unison]: http://www.panic.com/blog/the-future-of-unison/
 [PyCharm]: https://www.jetbrains.com/pycharm/
 [Rubymine]: https://www.jetbrains.com/ruby/
 [Skype]: http://www.skype.com/en/
@@ -169,8 +167,9 @@ Run the following:
 [Steam]: http://store.steampowered.com
 [Sublime Text 3]: http://www.sublimetext.com/
 [Text Wrangler]: http://www.barebones.com/products/textwrangler/
-[Transmission]: http://www.transmissionbt.com/
 [Transmission Remote GUI]: https://code.google.com/p/transmisson-remote-gui/
+[Transmission]: http://www.transmissionbt.com/
+[Unison]: http://www.panic.com/blog/the-future-of-unison/
 [Vagrant Manager]: http://vagrantmanager.com/
 [Vagrant]: https://www.vagrantup.com/
 [Virtualbox]: https://www.virtualbox.org/
