@@ -10,11 +10,25 @@ Requirements
 
 Workstation supports clean installations of these operating systems:
 
-* [OS X Yosemite (10.10)](https://www.apple.com/osx/)
-* OS X Mavericks (10.9)
+* [macOS Sierra (10.12.6)](https://www.apple.com/macos/sierra/)
 
 Older versions may work but aren't regularly tested. Bug reports for older
 versions are welcome.
+
+# BEGIN
+
+Install macOS and update to the latest.
+Install Xcode via the App Store.
+Run Xcode and accept the license agreement.
+
+run workstation.sh
+
+brew cask install iterm2
+
+# END
+
+
+
 
 What it sets up
 ---------------

@@ -21,7 +21,7 @@ append_to_file() {
   fi
 }
 
-trap 'ret=$?; test $ret -ne 0 && printf "failed\n\n" >&2; exit $ret' EXIT
+#trap 'ret=$?; test $ret -ne 0 && printf "failed\n\n" >&2; exit $ret' EXIT
 
 set -e
 
@@ -97,29 +97,22 @@ brew_cask_install() {
 
 if ! command -v brew >/dev/null; then
   fancy_echo "Installing Homebrew ..."
-    curl -fsS \
-      'https://raw.githubusercontent.com/Homebrew/install/master/install' | ruby
-
+  /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 else
   fancy_echo "Homebrew already installed. Skipping ..."
 fi
 
-fancy_echo "Updating Homebrew formulas ..."
-brew update
+brew_tap 'caskroom/cask'
+
+brew_tap 'caskroom/versions'
 
 brew_install_or_upgrade 'git'
 
-# Integrates homebrew formulae with MacOS X' launchctl manager.
-brew_tap 'gapple/services'
-
-append_to_file "$HOME/.gemrc" 'gem: --no-document'
-
-if ! command -v rbenv >/dev/null; then
-  if ! command -v rvm >/dev/null; then
+if ! command -v rvm >/dev/null; then
     fancy_echo 'Installing RVM and the latest Ruby...'
     curl -L https://get.rvm.io | bash -s stable --ruby --auto-dotfiles --autolibs=enable
     . ~/.rvm/scripts/rvm
-  else
+else
     local_version="$(rvm -v 2> /dev/null | awk '$2 != ""{print $2}')"
     latest_version="$(curl -s https://raw.githubusercontent.com/wayneeseguin/rvm/stable/VERSION)"
     if [ "$local_version" != "$latest_version" ]; then
@@ -128,11 +121,16 @@ if ! command -v rbenv >/dev/null; then
     else
       fancy_echo "Already using the latest version of RVM. Skipping..."
     fi
-  fi
+
 fi
 
-fancy_echo 'Updating Rubygems...'
-gem update --system
+append_to_file "$HOME/.gemrc" 'gem: --no-document'
+
+source ~/.bash_profile
+
+rvm install 2.4.1
+
+rvm use 2.4.1@global
 
 gem_install_or_update 'bundler'
 
@@ -140,19 +138,16 @@ fancy_echo "Configuring Bundler ..."
 number_of_cores=$(sysctl -n hw.ncpu)
 bundle config --global jobs $((number_of_cores - 1))
 
-brew_tap 'caskroom/cask'
+brew_install_or_upgrade 'liquidprompt'
+brew_install_or_upgrade 'bash'
 
-brew_install_or_upgrade 'brew-cask'
-
-brew_tap 'caskroom/versions'
-
-brew_cask_install 'flux'
-brew_cask_install 'github'
-
-if [ -f "$HOME/.workstation.local.sh" ]; then
-  . "$HOME/.workstation.local.sh"
-fi
-
-append_to_file "$HOME/.rvmrc" 'rvm_auto_reload_flag=2'
+#brew_cask_install 'flux'
+#brew_cask_install 'github'
+#
+#if [ -f "$HOME/.workstation.local.sh" ]; then
+#  . "$HOME/.workstation.local.sh"
+#fi
+#
+#append_to_file "$HOME/.rvmrc" 'rvm_auto_reload_flag=2'
 
 
